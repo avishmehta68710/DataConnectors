@@ -17,9 +17,9 @@ services:
     image: postgres:13
     container_name: psql-db
     environment:
-      POSTGRES_DB: data-connectors
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 8zbW63J48p15
+      POSTGRES_DB: <db_name>
+      POSTGRES_USER: <db_user>
+      POSTGRES_PASSWORD: <db_password>
       SCHEMA_NAME: amazon
     restart: always
     volumes:
