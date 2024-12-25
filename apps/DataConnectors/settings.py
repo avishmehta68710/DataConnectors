@@ -86,10 +86,10 @@ WSGI_APPLICATION = "DataConnectors.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB", "data-connectors"),
-        "USER": os.getenv("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "home123"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
         "PORT": os.getenv("POSTGRES_PORT", "5432"),
         "ATOMIC_REQUESTS": False,
         "CONN_MAX_AGE": 0,
