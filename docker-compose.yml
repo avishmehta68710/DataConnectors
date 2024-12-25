@@ -1,0 +1,36 @@
+services:
+  backend:
+    container_name: backend
+    build: .
+    restart: always
+    volumes:
+      - .:/apps
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:13
+    container_name: psql-db
+    environment:
+      POSTGRES_DB: data-connectors
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 8zbW63J48p15
+      SCHEMA_NAME: amazon
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 5s
+      timeout: 10s
+      retries: 120
+    expose:
+      - 5432
+
+volumes:
+  pg_data:

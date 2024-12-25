@@ -1,0 +1,5 @@
+# 0 21 * * * python /connectors/apps/cron_scripts/marketplace_configs.py
+
+# * * * * * python /connectors/apps/manage.py clearsessions
+
+# * * * * * curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/6a9bd103-89d5-4ea7-86e8-8044a513edd3
